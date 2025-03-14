@@ -1,82 +1,129 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f8f8f8;
+}
+
+main {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #333;
+}
+
+/* Menu Container */
 .menu-button-actions {
-  margin: 0;
-  padding: 0;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
 }
 
+/* Button Styling */
 .menu-button-actions button {
-  margin: 0;
-  padding: 6px;
-  display: inline-block;
-  position: relative;
-  background-color: #045a0d;
-  border: 1px solid #045a0d;
-  font-size: 0.9em;
-  color: white;
-  border-radius: 5px;
+    margin: 0;
+    padding: 10px 15px;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #045a0d;
+    border: 2px solid #045a0d;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 180px;
+    transition: background 0.3s, border 0.3s;
 }
-
-.menu-button-actions [role="menu"] {
-  display: none;
-  position: absolute;
-  margin: 0;
-  padding: 7px 4px;
-  border: 2px solid #045a0d;
-  border-radius: 5px;
-  background-color: #eee;
-}
-
-.menu-button-actions [role="menuitem"],
-.menu-button-actions [role="separator"] {
-  margin: 0;
-  padding: 6px;
-  display: block;
-  width: 4em;
-  background-color: #eee;
-  color: black;
-  border-radius: 5px;
-}
-
-.menu-button-actions [role="separator"] {
-  padding-top: 3px;
-  background-image: url("../images/separator.svg");
-  background-position: center;
-  background-repeat: repeat-x;
-}
-
-.menu-button-actions button svg.down {
-  padding-left: 0.125em;
-  fill: currentcolor;
-  stroke: currentcolor;
-}
-
-.menu-button-actions button[aria-expanded="true"] svg.down {
-  transform: rotate(180deg);
-}
-
-/* focus styling */
 
 .menu-button-actions button:hover,
 .menu-button-actions button:focus,
 .menu-button-actions button[aria-expanded="true"] {
-  padding: 4px;
-  border: 3px solid #045a0d;
-  background: #eee;
-  color: #222;
-  outline: none;
-  margin: 0;
+    background: #028a16;
+    border-color: #028a16;
+    outline: none;
 }
 
-.menu-button-actions [role="menuitem"].focus,
+/* SVG Arrow Icon */
+.menu-button-actions button svg.down {
+    padding-left: 0.5em;
+    fill: white;
+    transition: transform 0.3s ease;
+}
+
+.menu-button-actions button[aria-expanded="true"] svg.down {
+    transform: rotate(180deg);
+}
+
+/* Dropdown Menu */
+.menu-button-actions [role="menu"] {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 110%;
+    width: 100%;
+    background-color: #fff;
+    border: 2px solid #045a0d;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 5px 0;
+    z-index: 100;
+}
+
+/* Menu Items */
+.menu-button-actions [role="menuitem"] {
+    padding: 10px;
+    font-size: 1em;
+    background: #eee;
+    color: black;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.menu-button-actions [role="menuitem"]:hover,
 .menu-button-actions [role="menuitem"]:focus {
-  padding: 4px;
-  border: 2px solid #045a0d;
-  background: #045a0d;
-  color: #fff;
-  outline: none;
-  margin: 0;
+    background: #045a0d;
+    color: white;
+    outline: none;
+}
+
+/* Input Field */
+input.action {
+    width: 100%;
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 input.action:focus {
-  outline: 2px solid #045a0d;
-  background: #def;
+    outline: 2px solid #045a0d;
+    background: #def;
+}
+
+/* Show Menu when Button is Clicked */
+.menu-button-actions button[aria-expanded="true"] + [role="menu"] {
+    display: block;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
