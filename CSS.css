@@ -1,8 +1,8 @@
 /* General Styling */
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
     background-color: #f8f8f8;
+    margin: 20px;
 }
 
 main {
@@ -14,27 +14,22 @@ main {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1, h2 {
+h1 {
+    text-align: center;
     color: #333;
 }
 
 /* Menu Container */
 .menu-button-actions {
     position: relative;
-    display: inline-block;
-    width: 100%;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
-/* Button Styling */
+/* Button */
 .menu-button-actions button {
-    margin: 0;
     padding: 10px 15px;
     font-size: 1em;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     background-color: #045a0d;
     border: 2px solid #045a0d;
     color: white;
@@ -42,17 +37,19 @@ h1, h2 {
     cursor: pointer;
     width: 180px;
     transition: background 0.3s, border 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .menu-button-actions button:hover,
-.menu-button-actions button:focus,
-.menu-button-actions button[aria-expanded="true"] {
+.menu-button-actions button:focus {
     background: #028a16;
     border-color: #028a16;
     outline: none;
 }
 
-/* SVG Arrow Icon */
+/* SVG Arrow */
 .menu-button-actions button svg.down {
     padding-left: 0.5em;
     fill: white;
@@ -67,10 +64,11 @@ h1, h2 {
 .menu-button-actions [role="menu"] {
     display: none;
     position: absolute;
-    left: 0;
-    top: 110%;
-    width: 100%;
-    background-color: #fff;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    width: 200px;
+    background: white;
     border: 2px solid #045a0d;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -96,27 +94,13 @@ h1, h2 {
     outline: none;
 }
 
-/* Input Field */
-input.action {
-    width: 100%;
-    padding: 8px;
-    font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-input.action:focus {
-    outline: 2px solid #045a0d;
-    background: #def;
-}
-
-/* Show Menu when Button is Clicked */
+/* Show Menu */
 .menu-button-actions button[aria-expanded="true"] + [role="menu"] {
     display: block;
     animation: fadeIn 0.3s ease-out;
 }
 
-/* Fade In Animation */
+/* Fade In */
 @keyframes fadeIn {
     from {
         opacity: 0;
